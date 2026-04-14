@@ -1,12 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 [project]
 name = "credential-manager-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs MCP Server"
-license = "MIT"
-
-dependencies = [
-    "mcp>=1.0.0",
-]
-
+description = "MEOK AI Labs — credential-manager-mcp"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
+dependencies = ["mcp>=1.0.0"]
 [project.urls]
-Repository = "https://github.com/CSOAI-ORG/credential-manager-mcp"
+Homepage = "https://meok.ai"
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+only-include = ["server.py"]
