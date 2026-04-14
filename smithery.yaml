@@ -1,3 +1,28 @@
 name: credential-manager-mcp
-description: MEOK AI Labs - Ucredential manager
+description: MEOK AI Labs - AI Governance & Compliance
 version: 1.0.0
+tools:
+- name: issue_credential
+  description: ''
+  parameters:
+  - name: subject
+    type: string
+    required: true
+  - name: credential_type
+    type: string
+    required: true
+  - name: claims
+    type: object
+    required: true
+- name: verify_credential
+  description: ''
+  parameters:
+  - name: credential_id
+    type: string
+    required: true
+- name: revoke_credential
+  description: ''
+  parameters:
+  - name: credential_id
+    type: string
+    required: true

@@ -1,6 +1,60 @@
 {
   "name": "credential-manager-mcp",
-  "description": "MEOK AI Labs Ucredential manager",
+  "description": "MEOK AI Labs - AI Governance & Compliance",
   "version": "1.0.0",
-  "author": "MEOK AI Labs"
+  "tools": [
+    {
+      "name": "issue_credential",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "credential_type": {
+            "type": "string"
+          },
+          "claims": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "subject",
+          "credential_type",
+          "claims"
+        ]
+      }
+    },
+    {
+      "name": "verify_credential",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "credential_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "credential_id"
+        ]
+      }
+    },
+    {
+      "name": "revoke_credential",
+      "description": "",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "credential_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "credential_id"
+        ]
+      }
+    }
+  ]
 }
