@@ -1,0 +1,8 @@
+[project]
+name = "credential-manager-mcp"
+version = "1.0.0"
+description = "MEOK AI Labs MCP Server"
+license = "MIT"
+
+[project.urls]
+Repository = "https://github.com/CSOAI-ORG/credential-manager-mcp"
