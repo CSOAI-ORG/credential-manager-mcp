@@ -82,14 +82,14 @@ def verify_credential(credential_id: str, api_key: str = "") -> str:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _rl(): return err
 
-    if credential_id not in _CREDS:
+    cred = _store.hget("creds", credential_id)
+    if not cred:
         return {"valid": False, "reason": "Credential not found", "credential_id": credential_id}
-
-    cred = _CREDS[credential_id]
     checks = {"exists": True, "not_revoked": True, "not_expired": True, "signature_valid": True}
 
     # Revocation check
-    if credential_id in _REVOCATION_LIST or cred.get("status") == "revoked":
+    revocation_list = _store.get("revocation_list", [])
+    if credential_id in revocation_list or cred.get("status") == "revoked":
         checks["not_revoked"] = False
 
     # Expiry check
@@ -125,13 +125,17 @@ def revoke_credential(credential_id: str, reason: str = "unspecified", api_key: 
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
     if err := _rl(): return err
 
-    if credential_id not in _CREDS:
+    cred = _store.hget("creds", credential_id)
+    if not cred:
         return {"error": "Credential not found", "credential_id": credential_id}
 
-    _REVOCATION_LIST.add(credential_id)
-    _CREDS[credential_id]["status"] = "revoked"
-    _CREDS[credential_id]["revoked_at"] = datetime.now(timezone.utc).isoformat()
-    _CREDS[credential_id]["revocation_reason"] = reason
+    revocation_list = _store.get("revocation_list", [])
+    revocation_list.append(credential_id)
+    _store.set("revocation_list", revocation_list)
+    cred["status"] = "revoked"
+    cred["revoked_at"] = datetime.now(timezone.utc).isoformat()
+    cred["revocation_reason"] = reason
+    _store.hset("creds", credential_id, cred)
 
     return {"credential_id": credential_id, "status": "revoked", "reason": reason}
 
@@ -145,7 +149,7 @@ def list_credentials(subject: str = "", credential_type: str = "", include_revok
     if err := _rl(): return err
 
     results = []
-    for cid, cred in _CREDS.items():
+    for cid, cred in _store.hgetall("creds").items():
         if subject and cred["subject"] != subject:
             continue
         if credential_type and cred["type"] != credential_type:
@@ -162,7 +166,7 @@ def list_credentials(subject: str = "", credential_type: str = "", include_revok
             "expires_at": cred["expires_at"],
         })
 
-    return {"credentials": results, "total": len(results), "revoked_count": len(_REVOCATION_LIST)}
+    return {"credentials": results, "total": len(results), "revoked_count": len(_store.get("revocation_list", []))}
 
 
 @mcp.tool()
@@ -177,8 +181,9 @@ def audit_credential_usage(api_key: str = "") -> str:
     issuers = defaultdict(int)
     active = revoked = expired = 0
     now = datetime.now(timezone.utc)
+    all_creds = _store.hgetall("creds")
 
-    for cred in _CREDS.values():
+    for cred in all_creds.values():
         types[cred["type"]] += 1
         issuers[cred["issuer"]] += 1
         if cred.get("status") == "revoked":
@@ -189,7 +194,7 @@ def audit_credential_usage(api_key: str = "") -> str:
             active += 1
 
     return {
-        "total_issued": len(_CREDS),
+        "total_issued": len(all_creds),
         "active": active,
         "revoked": revoked,
         "expired": expired,
