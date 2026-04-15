@@ -4,11 +4,14 @@
 import sys, os
 sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
+from persistence import ServerStore
 
 import json, hashlib, time, hmac
 from datetime import datetime, timezone, timedelta
 from collections import defaultdict
 from mcp.server.fastmcp import FastMCP
+
+_store = ServerStore("credential-manager")
 
 FREE_DAILY_LIMIT = 15
 _usage = defaultdict(list)
@@ -19,9 +22,6 @@ def _rl(c="anon"):
     _usage[c].append(now); return None
 
 mcp = FastMCP("credential-manager", instructions="Verifiable credential management. Issue, verify, revoke, and audit credentials with cryptographic integrity. By MEOK AI Labs.")
-
-_CREDS: dict[str, dict] = {}
-_REVOCATION_LIST: set = set()
 
 
 def _generate_id(subject: str, cred_type: str) -> str:
@@ -62,7 +62,7 @@ def issue_credential(subject: str, credential_type: str, claims: str, issuer: st
         "status": "active",
     }
     credential["signature"] = _sign_credential(credential)
-    _CREDS[cred_id] = credential
+    _store.hset("creds", cred_id, credential)
 
     return {
         "credential_id": cred_id,
