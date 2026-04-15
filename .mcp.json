@@ -1,6 +1,6 @@
 {
   "name": "credential-manager-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Verifiable credential management. Issue, verify, revoke, and audit credentials with cryptographic in",
+  "description": "MCP server for credential manager. Features issue credential, verify credential, revoke credential. From MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {

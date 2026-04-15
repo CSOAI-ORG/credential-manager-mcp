@@ -9,5 +9,6 @@
   },
   "dependencies": {
     "mcp": "^1.0.0"
-  }
+  },
+  "description": "MCP server for credential manager. Features issue credential, verify credential, revoke credential. From MEOK AI Labs."
 }

@@ -1,6 +1,6 @@
 name: credential-manager-mcp
-description: Verifiable credential management. Issue, verify, revoke, and audit credentials
-  with cryptographic in
+description: MCP server for credential manager. Features issue credential, verify
+  credential, revoke credential. From MEOK AI Labs.
 version: 1.0.0
 tools:
 - name: issue_credential
@@ -23,8 +23,8 @@ tools:
     type: integer
     required: false
 - name: verify_credential
-  description: "Verify a credential's validity \u2014 checks existence, signature,\
-    \ expiry, and revocation status."
+  description: Verify a credential's validity — checks existence, signature, expiry,
+    and revocation status.
   parameters:
   - name: credential_id
     type: string
