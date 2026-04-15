@@ -1,11 +1,11 @@
 {
   "name": "credential-manager-mcp",
-  "description": "MEOK AI Labs - AI Governance & Compliance",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Verifiable credential management. Issue, verify, revoke, and audit credentials with cryptographic in",
   "version": "1.0.0",
   "tools": [
     {
       "name": "issue_credential",
-      "description": "",
+      "description": "Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -16,7 +16,13 @@
             "type": "string"
           },
           "claims": {
-            "type": "object"
+            "type": "string"
+          },
+          "issuer": {
+            "type": "string"
+          },
+          "expires_days": {
+            "type": "integer"
           }
         },
         "required": [
@@ -28,7 +34,7 @@
     },
     {
       "name": "verify_credential",
-      "description": "",
+      "description": "Verify a credential's validity \u2014 checks existence, signature, expiry, and revocation status.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -43,17 +49,48 @@
     },
     {
       "name": "revoke_credential",
-      "description": "",
+      "description": "Revoke a credential. Adds to revocation list and marks as inactive.",
       "parameters": {
         "type": "object",
         "properties": {
           "credential_id": {
+            "type": "string"
+          },
+          "reason": {
             "type": "string"
           }
         },
         "required": [
           "credential_id"
         ]
+      }
+    },
+    {
+      "name": "list_credentials",
+      "description": "List credentials with optional filters by subject and type.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string"
+          },
+          "credential_type": {
+            "type": "string"
+          },
+          "include_revoked": {
+            "type": "boolean"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "audit_credential_usage",
+      "description": "Get audit statistics on credential issuance, verification, and revocation.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
       }
     }
   ]

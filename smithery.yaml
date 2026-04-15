@@ -1,9 +1,11 @@
 name: credential-manager-mcp
-description: MEOK AI Labs - AI Governance & Compliance
+description: Verifiable credential management. Issue, verify, revoke, and audit credentials
+  with cryptographic in
 version: 1.0.0
 tools:
 - name: issue_credential
-  description: ''
+  description: Issue a verifiable credential with claims, signature, and expiry. Claims
+    should be JSON string.
   parameters:
   - name: subject
     type: string
@@ -12,17 +14,42 @@ tools:
     type: string
     required: true
   - name: claims
-    type: object
+    type: string
     required: true
+  - name: issuer
+    type: string
+    required: false
+  - name: expires_days
+    type: integer
+    required: false
 - name: verify_credential
-  description: ''
+  description: "Verify a credential's validity \u2014 checks existence, signature,\
+    \ expiry, and revocation status."
   parameters:
   - name: credential_id
     type: string
     required: true
 - name: revoke_credential
-  description: ''
+  description: Revoke a credential. Adds to revocation list and marks as inactive.
   parameters:
   - name: credential_id
     type: string
     required: true
+  - name: reason
+    type: string
+    required: false
+- name: list_credentials
+  description: List credentials with optional filters by subject and type.
+  parameters:
+  - name: subject
+    type: string
+    required: false
+  - name: credential_type
+    type: string
+    required: false
+  - name: include_revoked
+    type: boolean
+    required: false
+- name: audit_credential_usage
+  description: Get audit statistics on credential issuance, verification, and revocation.
+  parameters: []
