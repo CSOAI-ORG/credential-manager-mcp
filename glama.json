@@ -1,0 +1,10 @@
+{
+  "name": "credential-manager-mcp",
+  "description": "MEOK AI Labs \u2014 credential-manager-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/credential-manager-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}
