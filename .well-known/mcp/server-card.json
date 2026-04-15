@@ -1,0 +1,58 @@
+{
+  "name": "credential-manager",
+  "description": "Verifiable credential management. Issue, verify, revoke, and audit credentials with cryptographic integrity. By MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/credential-manager-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "issue_credential",
+      "description": "Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string."
+    },
+    {
+      "name": "verify_credential",
+      "description": "Verify a credential's validity \u2014 checks existence, signature, expiry, and revocation status."
+    },
+    {
+      "name": "revoke_credential",
+      "description": "Revoke a credential. Adds to revocation list and marks as inactive."
+    },
+    {
+      "name": "list_credentials",
+      "description": "List credentials with optional filters by subject and type."
+    },
+    {
+      "name": "audit_credential_usage",
+      "description": "Get audit statistics on credential issuance, verification, and revocation."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Blockchain & Web3",
+    "Security & Compliance"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
