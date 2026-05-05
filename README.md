@@ -1,59 +1,38 @@
-# Credential Manager MCP Server
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — Verifiable credential issuance, verification, and revocation with cryptographic integrity
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/credential-manager-mcp)](https://github.com/CSOAI-ORG/credential-manager-mcp/stargazers)
+
+# ucredentialU managerU mcp
+
+****
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/credential-manager-mcp)](https://www.npmjs.com/package/@meok-ai/credential-manager-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/credential-manager-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install credential-manager-mcp
+# or
+npm install -g @meok-ai/credential-manager-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-python server.py
-```
+See the project repository for full documentation and examples.
 
-## Tools
+## Enterprise Support
 
-### `issue_credential`
-Issue a verifiable credential with claims, HMAC-SHA256 signature, and expiry.
-
-**Parameters:**
-- `subject` (str): Credential subject
-- `credential_type` (str): Credential type
-- `claims` (str): Claims as JSON string
-- `issuer` (str): Issuer name (default 'MEOK AI Labs')
-- `expires_days` (int): Expiry in days (default 365)
-
-### `verify_credential`
-Verify a credential's validity — checks existence, signature, expiry, and revocation status.
-
-**Parameters:**
-- `credential_id` (str): Credential identifier
-
-### `revoke_credential`
-Revoke a credential. Adds to revocation list and marks as inactive.
-
-**Parameters:**
-- `credential_id` (str): Credential identifier
-- `reason` (str): Revocation reason
-
-### `list_credentials`
-List credentials with optional filters by subject and type.
-
-**Parameters:**
-- `subject` (str): Filter by subject
-- `credential_type` (str): Filter by type
-- `include_revoked` (bool): Include revoked credentials
-
-### `audit_credential_usage`
-Get audit statistics on credential issuance, verification, and revocation.
-
-## Authentication
-
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
