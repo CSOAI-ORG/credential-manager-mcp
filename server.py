@@ -53,6 +53,15 @@ def issue_credential(subject: str, credential_type: str, claims: str, issuer: st
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        subject (str): The subject to analyze or process.
+        credential_type (str): The credential type to analyze or process.
+        claims (str): The claims to analyze or process.
+        issuer (str): The issuer to analyze or process.
+        expires_days (int): The expires days to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -122,6 +131,11 @@ def verify_credential(credential_id: str, api_key: str = "") -> str:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        credential_id (str): The credential id to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -195,6 +209,12 @@ def revoke_credential(credential_id: str, reason: str = "unspecified", api_key: 
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        credential_id (str): The credential id to analyze or process.
+        reason (str): The reason to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -248,6 +268,13 @@ def list_credentials(subject: str = "", credential_type: str = "", include_revok
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        subject (str): The subject to analyze or process.
+        credential_type (str): The credential type to analyze or process.
+        include_revoked (bool): The include revoked to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -307,6 +334,10 @@ def audit_credential_usage(api_key: str = "") -> str:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
