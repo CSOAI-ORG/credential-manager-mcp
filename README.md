@@ -1,3 +1,5 @@
+[![credential-manager-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/credential-manager-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/credential-manager-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/credential-manager-mcp)](https://github.com/CSOAI-ORG/credential-manager-mcp/stargazers)
