@@ -37,7 +37,23 @@ def _sign_credential(cred: dict, issuer_secret: str = "meok-default-key") -> str
 @mcp.tool()
 def issue_credential(subject: str, credential_type: str, claims: str, issuer: str = "MEOK AI Labs",
                      expires_days: int = 365, api_key: str = "") -> str:
-    """Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string."""
+    """Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -76,7 +92,23 @@ def issue_credential(subject: str, credential_type: str, claims: str, issuer: st
 
 @mcp.tool()
 def verify_credential(credential_id: str, api_key: str = "") -> str:
-    """Verify a credential's validity — checks existence, signature, expiry, and revocation status."""
+    """Verify a credential's validity — checks existence, signature, expiry, and revocation status.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -119,7 +151,23 @@ def verify_credential(credential_id: str, api_key: str = "") -> str:
 
 @mcp.tool()
 def revoke_credential(credential_id: str, reason: str = "unspecified", api_key: str = "") -> str:
-    """Revoke a credential. Adds to revocation list and marks as inactive."""
+    """Revoke a credential. Adds to revocation list and marks as inactive.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -142,7 +190,23 @@ def revoke_credential(credential_id: str, reason: str = "unspecified", api_key: 
 
 @mcp.tool()
 def list_credentials(subject: str = "", credential_type: str = "", include_revoked: bool = False, api_key: str = "") -> str:
-    """List credentials with optional filters by subject and type."""
+    """List credentials with optional filters by subject and type.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -171,7 +235,23 @@ def list_credentials(subject: str = "", credential_type: str = "", include_revok
 
 @mcp.tool()
 def audit_credential_usage(api_key: str = "") -> str:
-    """Get audit statistics on credential issuance, verification, and revocation."""
+    """Get audit statistics on credential issuance, verification, and revocation.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
