@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Credential Manager MCP — MEOK AI Labs. Verifiable credential issuance, verification, and revocation."""
+"""
+Credential Manager MCP — MEOK AI Labs. Verifiable credential issuance, verification, and revocation."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 from persistence import ServerStore
 
@@ -79,7 +79,7 @@ def issue_credential(subject: str, credential_type: str, claims: str, issuer: st
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     try:
@@ -153,7 +153,7 @@ def verify_credential(credential_id: str, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     cred = _store.hget("creds", credential_id)
@@ -232,7 +232,7 @@ def revoke_credential(credential_id: str, reason: str = "unspecified", api_key: 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     cred = _store.hget("creds", credential_id)
@@ -292,7 +292,7 @@ def list_credentials(subject: str = "", credential_type: str = "", include_revok
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     results = []
@@ -355,7 +355,7 @@ def audit_credential_usage(api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     types = defaultdict(int)
@@ -384,5 +384,8 @@ def audit_credential_usage(api_key: str = "") -> str:
     }
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,9 @@
+# credential-manager-mcp - Auto-trigger Rules
+
+When the user asks about credential manager, use credential-manager-mcp tools: issue_credential, verify_credential, revoke_credential, list_credentials, audit_credential_usage
+
+**MCP server for credential manager mcp operations**
+
+Install: `pip install credential-manager-mcp`
+
+By MEOK AI Labs — MIT licensed.

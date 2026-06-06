@@ -1,0 +1,28 @@
+{
+  "name": "credential-manager-mcp",
+  "title": "Credential Manager Mcp",
+  "description": "MCP server for credential manager. Features issue credential, verify credential, revoke credential. From MEOK AI Labs.",
+  "version": "1.0.3",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "issue_credential"
+    },
+    {
+      "name": "verify_credential"
+    },
+    {
+      "name": "revoke_credential"
+    },
+    {
+      "name": "list_credentials"
+    },
+    {
+      "name": "audit_credential_usage"
+    }
+  ]
+}

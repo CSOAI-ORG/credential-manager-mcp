@@ -1,32 +1,36 @@
-# Credential Manager MCP
-
-> Verifiable credential management
-
-`credential-manager-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# credential-manager-mcp
+# **MCP server for credential manager mcp operations**
 
 ## Install
-
 ```bash
 pip install credential-manager-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx credential-manager-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `issue_credential` — Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string.
-- `verify_credential` — Verify a credential's validity — checks existence, signature, expiry, and revocation status.
-- `revoke_credential` — Revoke a credential. Adds to revocation list and marks as inactive.
-- `list_credentials` — List credentials with optional filters by subject and type.
-- `audit_credential_usage` — Get audit statistics on credential issuance, verification, and revocation.
+### `issue_credential`
+Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string.
 
-## Links
+### `verify_credential`
+Verify a credential's validity — checks existence, signature, expiry, and revocation status.
 
-- Source: https://github.com/CSOAI-ORG/credential-manager-mcp
-- PyPI: https://pypi.org/project/credential-manager-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `revoke_credential`
+Revoke a credential. Adds to revocation list and marks as inactive.
+
+### `list_credentials`
+List credentials with optional filters by subject and type.
+
+### `audit_credential_usage`
+Get audit statistics on credential issuance, verification, and revocation.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.
