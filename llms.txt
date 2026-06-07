@@ -1,0 +1,32 @@
+# Credential Manager MCP
+
+> Verifiable credential management
+
+`credential-manager-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install credential-manager-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx credential-manager-mcp
+```
+
+## Tools
+
+- `issue_credential` — Issue a verifiable credential with claims, signature, and expiry. Claims should be JSON string.
+- `verify_credential` — Verify a credential's validity — checks existence, signature, expiry, and revocation status.
+- `revoke_credential` — Revoke a credential. Adds to revocation list and marks as inactive.
+- `list_credentials` — List credentials with optional filters by subject and type.
+- `audit_credential_usage` — Get audit statistics on credential issuance, verification, and revocation.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/credential-manager-mcp
+- PyPI: https://pypi.org/project/credential-manager-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
