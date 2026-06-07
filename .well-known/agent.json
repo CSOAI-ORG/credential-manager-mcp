@@ -1,0 +1,68 @@
+{
+  "name": "credential-manager-mcp",
+  "description": "Credential Manager MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/credential-manager-mcp.html",
+  "version": "1.0.3",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "issue_credential",
+      "name": "Issue Credential",
+      "description": "issue_credential via credential-manager-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "verify_credential",
+      "name": "Verify Credential",
+      "description": "verify_credential via credential-manager-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "revoke_credential",
+      "name": "Revoke Credential",
+      "description": "revoke_credential via credential-manager-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "list_credentials",
+      "name": "List Credentials",
+      "description": "list_credentials via credential-manager-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "audit_credential_usage",
+      "name": "Audit Credential Usage",
+      "description": "audit_credential_usage via credential-manager-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

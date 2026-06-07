@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "credential-manager-mcp",
+    "description": "Credential Manager MCP Server by MEOK AI Labs",
+    "version": "1.0.3",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "credential-manager-mcp"
+      }
+    ],
+    "capabilities": [
+      "issue_credential",
+      "verify_credential",
+      "revoke_credential",
+      "list_credentials",
+      "audit_credential_usage"
+    ]
+  }
+}
