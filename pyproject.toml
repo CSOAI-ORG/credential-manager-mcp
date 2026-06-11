@@ -9,7 +9,7 @@ description = "MCP server for credential manager. Features issue credential, ver
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
-dependencies = ["mcp>=1.0.0"]
+dependencies = ["mcp>=1.27.2"]
 keywords = ["mcp", "ai", "meok", "credential", "manager"]
 classifiers = [
     "Programming Language :: Python :: 3",
