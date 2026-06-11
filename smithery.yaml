@@ -23,8 +23,8 @@ tools:
     type: integer
     required: false
 - name: verify_credential
-  description: Verify a credential's validity — checks existence, signature, expiry,
-    and revocation status.
+  description: "Verify a credential's validity \u2014 checks existence, signature,\
+    \ expiry, and revocation status."
   parameters:
   - name: credential_id
     type: string
@@ -53,3 +53,16 @@ tools:
 - name: audit_credential_usage
   description: Get audit statistics on credential issuance, verification, and revocation.
   parameters: []
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+    - apiKey
+    properties:
+      apiKey:
+        type: string
+        description: Your MEOK API Key
+  commandFunction: "(config) => ({\n  command: 'uvx',\n  args: ['credential-manager-mcp',\
+    \ '--api-key', config.apiKey],\n  env: {\n    MEOK_API_KEY: config.apiKey\n  }\n\
+    })"
