@@ -4,9 +4,8 @@
   "version": "1.0.4",
   "description": "Credential Manager MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/credential-manager-mcp",
-    "source": "https://github.com/CSOAI-ORG/credential-manager-mcp"
+    "source": "github"
   },
   "packages": [
     {
