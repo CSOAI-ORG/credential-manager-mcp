@@ -1,3 +1,9 @@
 __pycache__/
 *.pyc
 .env
+
+# Auto-added during alignment sweep
+dist/credential_manager_mcp-1.0.3-py3-none-any.whl
+dist/credential_manager_mcp-1.0.3.tar.gz
+dist/credential_manager_mcp-1.0.4-py3-none-any.whl
+dist/credential_manager_mcp-1.0.4.tar.gz
